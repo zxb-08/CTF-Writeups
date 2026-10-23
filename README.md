@@ -17,4 +17,4 @@ The goal is to demonstrate practical analysis, log correlation, incident respons
 
 | Platform | Challenge / Lab | Category | Focus Area | Write-up |
 | :--- | :--- | :--- | :--- | :--- |
-| TryHackMe | **Quiet as the Grave** | Blue Team | Threat Hunting, Splunk, PowerShell Exfil | [View Write-up](./TryHackMe/Quiet-as-the-Grave/README.md) |
+| TryHackMe | **Quiet as the Grave** | Blue Team | Threat Hunting, Splunk, PowerShell Exfil | [README](./TryHackMe/Quiet-as-the-Grave/README.md) |
