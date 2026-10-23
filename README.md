@@ -10,8 +10,7 @@
 ### >> About this Repository
 
 This repository serves as my security portfolio, documenting hands-on labs, Threat Hunting simulations, and Capture The Flag (CTF) walkthroughs.
-
-The goal is to demonstrate practical analysis, log correlation, incident response methodologies, and the MITRE ATT&CK framework in action.
+My personal log of cybersecurity labs, simulations, and CTFs. Documenting the process, the logs, and the analysis.
 
 ## >> Directory Index
 
