@@ -15,17 +15,10 @@ The goal is to demonstrate practical analysis, log correlation, incident respons
 
 ## >> Directory Index
 
-### 🛡️ Blue Team / Threat Hunting
+### - Blue Team / Threat Hunting
 *Documenting SIEM analysis, log correlation, and attack chain reconstruction.*
 
 | Platform | Challenge / Lab | Focus Area | Write-up |
 | :--- | :--- | :--- | :--- |
 | TryHackMe | **Quiet as the Grave** | Threat Hunting, Splunk, PowerShell Exfil | [View Write-up](./TryHackMe/Quiet-as-the-Grave/README.md) |
 
-### 💻 Red Team / CTF Rooms
-*Documenting exploitation, privilege escalation, and web vulnerabilities.*
-
-| Platform | Machine / Room | OS / Focus | Write-up |
-| :--- | :--- | :--- | :--- |
-| TryHackMe | *Coming Soon* | Linux / Web | *Pending* |
-| HackTheBox | *Coming Soon* | Windows / AD | *Pending* |
