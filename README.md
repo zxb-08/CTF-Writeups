@@ -29,6 +29,4 @@ Every write-up is just me following my curiosity down whatever weird technical p
 .<br>
 .<br>
 .<br>
-.<br>
-.<br>
-> *New write-ups drop whenever I find something cool. Stay tuned.*
+> *New write-ups drop whenever I find something cool.*
