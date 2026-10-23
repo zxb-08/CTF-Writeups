@@ -14,11 +14,11 @@ Hypothesis-driven threat hunt in Splunk, reconstructing an intrusion at a fictio
 
 ---
 
-# ▸ Abstract
+# • Abstract
 
 A developer workstation (`THM-SREYES`) was suspected of compromise through a malicious archive. By baselining normal activity and then isolating attacker-relevant binaries, I reduced 8,673 events to 14 and rebuilt the chain: a user-executed PowerShell script, staging in `AppData`, discovery with built-in tools, a denied remote session, a Kerberos network logon to the domain controller as the machine account, and compression of data ahead of exfiltration.
 
-# ▸ Theory
+# • Theory
 
 ### Threat hunting vs. alert triage
 Triage reacts to alerts. Hunting is proactive: start from a **hypothesis** about attacker behavior, search the data for evidence, then confirm or reject it. A hunt can succeed even with zero alerts, which suits this scenario ("quiet as the grave").
@@ -46,7 +46,7 @@ Attackers use tools already on the system (`powershell.exe`, `whoami.exe`, `net.
 ### Logon type 3 and machine accounts
 Logon Type 3 is a **network logon** (remote access to a resource). Machine accounts (names ending in `$`) authenticate to domain controllers constantly for normal operations, so such a logon is only suspicious in context: what ran just before it, and whether it carries an elevated token.
 
-# ▸ Scenario and hypotheses
+# • Scenario and hypotheses
 
 Developer Sophia Reyes (`s.reyes`) opened a malicious file, the likely entry point. My hypotheses:
 
@@ -57,7 +57,7 @@ Developer Sophia Reyes (`s.reyes`) opened a malicious file, the likely entry poi
 
 ![Hunt notes](images/01-notebook-scenario-hypothesis.jpg)
 
-# ▸ Methodology
+# • Methodology
 
 ## 1. Baseline
 First search (`*`) over all time to see what normal looks like: 8,673 events, dominated by routine processes such as the AWS SSM agent on `DC-01` and browser updaters (Google and Edge update). Grouping process images over time showed these repeat on a fixed schedule, so they could be ruled out.
@@ -96,7 +96,7 @@ ComputerName="DC-01" EventCode=4624 Logon_Type=3
 | table _time Account_Name Source_Network_Address Elevated_Token
 ```
 
-# ▸ Findings
+# • Findings
 
 | Time | Stage | ATT&CK | Evidence |
 |---|---|---|---|
@@ -125,7 +125,7 @@ ComputerName="DC-01" EventCode=4624 Logon_Type=3
 
 ![Machine account logon](images/12-lateral-4624-machine-acct-161745.webp)
 
-# ▸ Indicators of Compromise
+# • Indicators of Compromise
 
 | Type | Indicator |
 |---|---|
@@ -138,20 +138,20 @@ ComputerName="DC-01" EventCode=4624 Logon_Type=3
 | Archive | `review-cache.zip` |
 | C2 | `45.147.230.131:8443` |
 
-# ▸ Discussion
+# • Discussion
 
 - **Lineage beats signatures.** No malicious binary was involved; one parent process linked every step.
 - **Baseline first.** Knowing the updater and SSM-agent noise made the 14 relevant events stand out.
 - **Credential fallback.** When the user context was denied, the machine account succeeded. Monitoring machine-account logons to DCs, combined with preceding failures, is a useful detection.
 
-# ▸ Limitations
+# • Limitations
 
 - No Run key or scheduled task was confirmed, so the `AppData` copy is treated as staging, not proven persistence.
 - The archive download, the `curl.exe` exfiltration event and the C2 connection are not yet documented with screenshots; the C2 indicators come from my hunt notes.
 - `cmd.exe` and `dsregcmd.exe` activity near 12:40 was seen in the chart but not analysed.
 - Simulated dataset; real environments are noisier.
 
-# ▸ Recommendations
+# • Recommendations
 
 1. Isolate `THM-SREYES`; block `45.147.230.131`.
 2. Reset `s.reyes` credentials and revoke the machine account's Kerberos tickets.
@@ -159,13 +159,13 @@ ComputerName="DC-01" EventCode=4624 Logon_Type=3
 4. Detect `powershell.exe -File` launched from `AppData` or `Downloads`.
 5. Alert on machine-account network logons to DCs that follow failed remote sessions from the same host.
 
-# ▸ Conclusion
+# • Conclusion
 
 The evidence supports the hypothesis. A user-executed script was staged in `AppData`, used native tools for discovery, was denied remote access, then authenticated to the domain controller as the machine account and prepared data for exfiltration.
 
 **Future work:** write Sigma/Splunk detections for these behaviors; add the exfiltration evidence; map the chain in ATT&CK Navigator.
 
-# ▸ References
+# • References
 
 - TryHackMe Threat Hunting Simulator
 - [MITRE ATT&CK](https://attack.mitre.org/): T1204.002, T1033, T1021, T1087.002, T1560, T1041
