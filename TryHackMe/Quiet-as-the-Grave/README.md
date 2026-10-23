@@ -14,7 +14,7 @@ Hypothesis-driven threat hunt in Splunk, reconstructing an intrusion at a fictio
 
 ---
 
-# Abstract
+# [Abstract]
 
 A developer workstation (`THM-SREYES`) was suspected of compromise through a malicious archive. By baselining normal activity and then isolating attacker-relevant binaries, I reduced 8,673 events to 14 and rebuilt the chain: a user-executed PowerShell script, staging in `AppData`, discovery with built-in tools, a denied remote session, a Kerberos network logon to the domain controller as the machine account, and compression of data ahead of exfiltration.
 
