@@ -21,12 +21,14 @@ Every write-up is just me following my curiosity down whatever weird technical p
 | :--- | :--- | :--- | :--- | :--- |
 | TryHackMe | **Quiet as the Grave** | Blue Team | Threat Hunting, Splunk, PowerShell Exfil | [README](./TryHackMe/Quiet-as-the-Grave/README.md) |
 
-.<\n>
-.<\n>
-.<\n>
-.<\n>
-.<\n>
-.<\n>
-.<\n>
-.<\n>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
+.<br>
 > *New write-ups drop whenever I find something cool. Stay tuned.*
