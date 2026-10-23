@@ -59,12 +59,12 @@ Developer Sophia Reyes (`s.reyes`) opened a malicious file, the likely entry poi
 
 ## Methodology
 
-### 1. Baseline
+#### 1. Baseline
 First search (`*`) over all time to see what normal looks like: 8,673 events, dominated by routine processes such as the AWS SSM agent on `DC-01` and browser updaters (Google and Edge update). Grouping process images over time showed these repeat on a fixed schedule, so they could be ruled out.
 
 ![Baseline noise](images/03-splunk-noise-updaters.png)
 
-### 2. Isolate attacker-relevant activity
+#### 2. Isolate attacker-relevant activity
 Narrowed to the suspect host and to binaries commonly abused for LotL:
 
 ```spl
@@ -77,10 +77,10 @@ ComputerName="THM-SREYES" EventCode=1
 
 ![Attacker tool timechart](images/04-splunk-attacker-tools-timechart.png)
 
-### 3. Pivot by lineage
+#### 3. Pivot by lineage
 For each hit I read `ParentCommandLine`, `User`, `LogonId` and timestamp. Every discovery and collection event had the same parent: PowerShell running `review-helper.ps1`. That one lineage tied the whole chain together.
 
-### 4. Confirm on the domain controller
+#### 4. Confirm on the domain controller
 Checked `DC-01` Security events around the timestamps of interest for network logons and Kerberos activity.
 
 Illustrative pivots (field names as they appear in this index):
