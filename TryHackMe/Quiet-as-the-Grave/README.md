@@ -1,6 +1,6 @@
 # Threat Hunt: "Quiet as the Grave"
 
-Hypothesis-driven threat hunt in Splunk, reconstructing an intrusion at a fictional game studio from Sysmon, Windows Security and PowerShell logs.
+A TryHackMe lab of hypothesis-driven threat hunt in Splunk, reconstructing an intrusion at a fictional game studio from Sysmon, Windows Security and PowerShell logs.
 
 | | |
 |---|---|
