@@ -40,7 +40,7 @@ atomic numbers was the obvious read.
 
 ## Step 2 — "move the neon"
 
-Neon is atomic number 10, so "move the neon" = shift by 10.
+Neon is atomic number 10, so "move the neon" = shift by +10 or -10.
 
 I overthought this one for a while — stared at the underscores and digit
 patterns in `antidotes.txt` and assumed it had to be some custom
