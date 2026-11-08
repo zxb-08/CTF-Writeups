@@ -15,8 +15,6 @@ of leetspeak-looking gibberish). Flag format: `spooky{antidote_here}`.
 
 ![Challenge card](images/challenge-card.png)
 
-![Arm note and the two files](images/arm-note-and-files.png)
-
 ![chemicals.txt and antidotes.txt](images/chemicals-antidotes-lists.png)
 
 ## Step 1 — the arm numbers
