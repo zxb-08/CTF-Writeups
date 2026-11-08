@@ -71,5 +71,4 @@ line in the decoded antidotes list, wrapped in the flag format.
 
 ## Notes
 
-- Hint text ("move the neon") was literal, not metaphorical — worth trying
-  the simplest cipher a hint implies before assuming something custom.
+- Hint text ("move the neon") was literal, not metaphorical.
