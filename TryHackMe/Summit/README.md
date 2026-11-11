@@ -59,6 +59,7 @@ I added a DNS filter rule denying `emudyn.bresonicz.info`. Denying a domain also
 ![DNS filter rule](images/07-flag3-dns-filter-rule.png)
 <br>
 <br>
+<br>
 
 ## Flag 4: detect the registry change (sample4.exe)
 
@@ -92,6 +93,7 @@ In step 3 I entered the key, name and value from the report and picked TA0005.
 ![Generated Sigma rule](images/14-flag4-sigma-rule-validation.png)
 <br>
 <br>
+<br>
 
 ## Flag 5: detect the beacon (sample5.exe)
 
@@ -109,6 +111,7 @@ The sandbox report matches. `sample5.exe` downloads `beacon.bat` from `bababa10l
 So I built a Sigma rule for network connections from the host: any remote IP, any port, size 97 bytes, frequency 1800 seconds. This maps to the tactic **Command and Control (TA0011)**.
 
 ![Sigma network connection conditions](images/18-flag5-sigma-network-conditions.png)
+<br>
 <br>
 <br>
 
