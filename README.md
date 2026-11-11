@@ -20,6 +20,7 @@ Every write-up is just me following my curiosity down whatever weird technical p
 | Platform | Challenge / Lab | Category | Focus Area | Write-up |
 | :--- | :--- | :--- | :--- | :--- |
 | TryHackMe | **Quiet as the Grave** | Blue Team | Threat Hunting, Splunk, PowerShell Exfil | [README](./TryHackMe/Quiet-as-the-Grave/README.md) |
+| TryHackMe | **Summit** | Blue Team | Detection Engineering, Sigma Rules, IOC Blocking | [README](./TryHackMe/Summit/README.md) |
 | SpookyCTF 2026 | **I D0n't Feel S0 G00d** | Crypto | Caesar Cipher, Cyber Chef | [README](./Spooky-2026/I-Dont-Feel-So-Good/README.md) |
 
 .<br>
