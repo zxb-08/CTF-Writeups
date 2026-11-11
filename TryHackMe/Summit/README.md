@@ -23,6 +23,7 @@ MD5: cbda8ae000aa9cbe7c8b982bae006c2a
 ```
 <br>
 <br>
+
 ## Flag 2: block the IP (sample2.exe)
 
 Sphinx reminds me not to rely on hashes alone, since changing a single bit of the file changes its hash. So I needed to see what the malware actually does.
