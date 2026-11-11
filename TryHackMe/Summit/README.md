@@ -10,7 +10,7 @@ We have been assigned to work with an external penetration tester. The tester wi
 
 ## Methodology
 
-### Flag 1: block the hash (sample1.exe)
+## Flag 1: block the hash (sample1.exe)
 
 Sphinx starts simple. I scanned `sample1.exe` in the sandbox and read the report. It is tagged `Trojan.Metasploit.A`, Metasploit was detected under malicious behaviour, and it connects to an unusual port. The report also lists the file hashes (MD5, SHA1, SHA256).
 
@@ -22,7 +22,7 @@ A hash identifies this exact file and nothing else, so to block it uniquely I ad
 MD5: cbda8ae000aa9cbe7c8b982bae006c2a
 ```
 
-### Flag 2: block the IP (sample2.exe)
+## Flag 2: block the IP (sample2.exe)
 
 Sphinx reminds me not to rely on hashes alone, since changing a single bit of the file changes its hash. So I needed to see what the malware actually does.
 
@@ -41,7 +41,7 @@ The suspicious one is `154.35.10.113`. I added an egress firewall rule to deny a
 
 ![Firewall rule](images/05-flag2-firewall-rule.png)
 
-### Flag 3: block the domain (sample3.exe)
+## Flag 3: block the domain (sample3.exe)
 
 The IP block isn't bulletproof. Sphinx says he can get around it with a new public IP, so I looked into `sample3.exe`.
 
@@ -53,7 +53,7 @@ I added a DNS filter rule denying `emudyn.bresonicz.info`. Denying a domain also
 
 ![DNS filter rule](images/07-flag3-dns-filter-rule.png)
 
-### Flag 4: detect the registry change (sample4.exe)
+## Flag 4: detect the registry change (sample4.exe)
 
 By now hashes, IPs and domains are blocked. Some attackers give up and find another target. Sphinx doesn't. This time I studied what `sample4.exe` runs, which processes it creates, and what it leaves behind.
 
@@ -84,7 +84,7 @@ In step 3 I entered the key, name and value from the report and picked TA0005.
 ![Step 3: registry conditions](images/13-flag4-sigma-registry-conditions.png)
 ![Generated Sigma rule](images/14-flag4-sigma-rule-validation.png)
 
-### Flag 5: detect the beacon (sample5.exe)
+## Flag 5: detect the beacon (sample5.exe)
 
 A different approach this time. The instructions now come from Sphinx's back-end server, so I needed a unique behaviour of `sample5.exe` to detect it.
 
@@ -101,7 +101,7 @@ So I built a Sigma rule for network connections from the host: any remote IP, an
 
 ![Sigma network connection conditions](images/18-flag5-sigma-network-conditions.png)
 
-### Flag 6: detect the exfiltration staging (sample6.exe)
+## Flag 6: detect the exfiltration staging (sample6.exe)
 
 For the final flag, Sphinx sends `sample6.exe` with the recorded command logs from all the previous samples. Every command appends its output to the same file in `%temp%`:
 
