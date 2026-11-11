@@ -44,7 +44,7 @@ The suspicious one is `154.35.10.113`. I added an egress firewall rule to deny a
 ![Firewall rule](images/05-flag2-firewall-rule.png)
 <br>
 <br>
-
+---
 ## Flag 3: block the domain (sample3.exe)
 
 The IP block isn't bulletproof. Sphinx says he can get around it with a new public IP, so I looked into `sample3.exe`.
