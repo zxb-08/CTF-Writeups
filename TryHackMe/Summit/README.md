@@ -22,6 +22,7 @@ A hash identifies this exact file and nothing else, so to block it uniquely I ad
 MD5: cbda8ae000aa9cbe7c8b982bae006c2a
 ```
 <br>
+<br>
 
 ## Flag 2: block the IP (sample2.exe)
 
@@ -42,6 +43,9 @@ The suspicious one is `154.35.10.113`. I added an egress firewall rule to deny a
 
 ![Firewall rule](images/05-flag2-firewall-rule.png)
 
+<br>
+<br>
+
 ## Flag 3: block the domain (sample3.exe)
 
 The IP block isn't bulletproof. Sphinx says he can get around it with a new public IP, so I looked into `sample3.exe`.
@@ -53,6 +57,9 @@ Its network activity shows repeated connections to two domains: `services.micros
 I added a DNS filter rule denying `emudyn.bresonicz.info`. Denying a domain also covers its subdomains.
 
 ![DNS filter rule](images/07-flag3-dns-filter-rule.png)
+
+<br>
+<br>
 
 ## Flag 4: detect the registry change (sample4.exe)
 
@@ -85,6 +92,9 @@ In step 3 I entered the key, name and value from the report and picked TA0005.
 ![Step 3: registry conditions](images/13-flag4-sigma-registry-conditions.png)
 ![Generated Sigma rule](images/14-flag4-sigma-rule-validation.png)
 
+<br>
+<br>
+
 ## Flag 5: detect the beacon (sample5.exe)
 
 A different approach this time. The instructions now come from Sphinx's back-end server, so I needed a unique behaviour of `sample5.exe` to detect it.
@@ -101,6 +111,9 @@ The sandbox report matches. `sample5.exe` downloads `beacon.bat` from `bababa10l
 So I built a Sigma rule for network connections from the host: any remote IP, any port, size 97 bytes, frequency 1800 seconds. This maps to the tactic **Command and Control (TA0011)**.
 
 ![Sigma network connection conditions](images/18-flag5-sigma-network-conditions.png)
+
+<br>
+<br>
 
 ## Flag 6: detect the exfiltration staging (sample6.exe)
 
